@@ -4,7 +4,7 @@ import googleLogin from '../firebase/firebaseAuth';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { signInSuccess } from '../context/user/userSlice';
-import Cookies from 'js-cookie'; // ✅ import js-cookie
+import Cookies from 'js-cookie'; 
 
 const Login = () => {
   const navigate = useNavigate();

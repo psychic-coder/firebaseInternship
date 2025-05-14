@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getStudentById } from '../api/mockApi';
 
 export default function StudentDetails() {
-  const { id } = useParams(); // 🔥 Get student ID from URL params
+  const { id } = useParams(); 
   const [student, setStudent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
