@@ -1,8 +1,11 @@
 import React from 'react'
+import StudentRegistrationForm from '../components/StudentForm'
 
 const AddStudent = () => {
   return (
-    <div>AddStudent</div>
+    <div>
+        <StudentRegistrationForm/>
+    </div>
   )
 }
 

@@ -1,3 +1,4 @@
+
 const students = [
     { id: 1, name: "Alice Johnson", course: "Math", email: "alice.j@example.com" },
     { id: 2, name: "Bob Smith", course: "Science", email: "bob.s@example.com" },
@@ -16,11 +17,39 @@ const students = [
     { id: 15, name: "Oliver Scott", course: "Chemistry", email: "oliver.s@example.com" },
   ];
   
-  
   export const fetchStudents = () =>
     new Promise((resolve) => {
       setTimeout(() => {
         resolve(students);
-      }, 1000); 
+      }, 1000);
     });
   
+ 
+  export const getUniqueCourses = async () => {
+    const allStudents = await fetchStudents();
+    return [...new Set(allStudents.map(student => student.course))];
+  };
+  
+  
+  export const getStudentById = (id) =>
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const student = students.find(s => s.id === parseInt(id));
+        if (student) {
+          resolve(student);
+        } else {
+          reject(new Error("Student not found"));
+        }
+      }, 500);
+    });
+    
+ 
+  export const addNewStudent = (student) =>
+    new Promise((resolve) => {
+      setTimeout(() => {
+        const newId = Math.max(...students.map(s => s.id)) + 1;
+        const newStudent = { ...student, id: newId };
+        students.push(newStudent);
+        resolve(newStudent);
+      }, 800);
+    });
